@@ -8,16 +8,67 @@
   # Functions directory (if you add serverless functions later)
   functions = "netlify/functions"
 
+# Ensure proper handling of HTML files
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
 [build.environment]
   # Node.js version (not required for static sites, but good to specify)
   NODE_VERSION = "18"
 
-# Redirect rules for SPA-like behavior (optional)
+# Redirect rules for SPA-like behavior
+# Catch all routes and serve index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  conditions = {Role = ["admin"]}
+
+# Handle specific HTML files without .html extension
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/for-athletes"
+  to = "/for-athletes.html"
+  status = 200
+
+[[redirects]]
+  from = "/for-coaches"
+  to = "/for-coaches.html"
+  status = 200
+
+[[redirects]]
+  from = "/how-it-works"
+  to = "/how-it-works.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
 
 # Headers for security and performance
 [[headers]]
