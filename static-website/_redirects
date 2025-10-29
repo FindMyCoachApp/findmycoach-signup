@@ -1,0 +1,11 @@
+# Redirect rules for Netlify
+# Format: from    to    status
+
+# Redirect www to non-www (optional)
+# https://yourdomain.com/*    https://www.yourdomain.com/*    301!
+
+# Redirect old URLs to new ones (add as needed)
+# /old-page    /new-page    301
+
+# SPA fallback - redirect all unmatched routes to index.html
+/*    /index.html    200
